@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include"struct.h"
+#include<string>
+#define size 3
+int Getworld()
+{
+	FILE* fp = fopen("e:/daan.txt", "r");
+	if (!fp)
+	{
+		return -1;
+	}
+	list = (txt*)malloc(sizeof(txt) * size);
+	char* temp = (char*)malloc(sizeof(char) * 1024);
+	int i = 0;
+	while (!feof(fp))
+	{
+		memset(temp, 0, 1024);
+		fgets(temp, 1024, fp);
+		//开辟单词的堆区空间
+		list[i].word = (char*)malloc(sizeof(char) * strlen(temp));
+		//将单词放在指定堆空间中
+		strcpy(list[i].word, temp);
+
+		memset(temp, 0, 1024);
+		fgets(temp, 1024, fp);
+		list[i].trans = (char*)malloc(sizeof(char) * strlen(temp));
+		strcpy(list[i].trans, temp);
+		i++;	
+	}
+	
+	free(temp);
+	fclose(fp);
+}
+int main(void)
+{
+	Getworld();
+	for (size_t i = 0; i < size; i++)
+	{
+		printf("%s\n", list[i].word);
+		printf("%s\n", list[i].trans);
+
+	}
+	return 0;
+}
