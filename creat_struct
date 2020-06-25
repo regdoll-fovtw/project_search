@@ -1,0 +1,7 @@
+#pragma once
+typedef struct text
+{
+	char* word;
+	char* trans;
+}txt;
+txt* list =NULL;
