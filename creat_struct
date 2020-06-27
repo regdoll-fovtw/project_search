@@ -5,3 +5,8 @@ typedef struct text
 	char* trans;
 }txt;
 txt* list =NULL;
+typedef struct INDEX
+{
+	int* start;
+	int* end;
+}pos;
