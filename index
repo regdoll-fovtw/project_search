@@ -1,0 +1,25 @@
+void Myindex(void)
+{
+	FILE* fp = fopen("e:/daan.txt", "r");
+	char flag = 'a';
+	int idx = 0;
+	int i = 0;
+	pos* index = (pos*)malloc(sizeof(pos) * 27);
+	index[0].start = 0;
+	index[0].end = 0;
+	while (!feof(fp))
+	{
+		if (list[i].word[0]==flag)
+		{
+			index[idx].end++;
+		}
+		else
+		{
+			idx++;
+			index[idx].start = index[idx - 1].end + 1;
+			index[idx].end=index[idx - 1].end + 1;
+			flag++;
+		}
+		i++;
+	}
+}
